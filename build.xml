@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="create_run_jar" name="Create Runnable Jar">
     <!--ANT 1.7+ is required                                        -->
+    <target name="clean">
+      <delete includeemptydirs="true">
+	<fileset dir="bin" includes="**/*"/>
+	<fileset dir="target" includes="**/*"/>
+      </delete>
+    </target>
     <target name="compile">
-      <javac srcdir="src" destdir="bin" source="1.8" classpath="lib/RXTXcomm.jar">
+      <javac srcdir="src" destdir="bin" source="1.8" target="1.8" classpath="lib/RXTXcomm.jar">
       </javac>
     </target>
     <target name="create_run_jar" depends="compile">
-        <mkdir name="target" />
+        <mkdir dir="target" />
         <jar destfile="target/mortens-magna-styring.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="com.grouleff.pumpcontrol.MI301DongleProxy"/>
