@@ -1,0 +1,7 @@
+Copy over ssh-pub key into ~/.ssh/authorized_keys2
+
+copy files from this dir.
+
+sudo apt-get install librxtx-java screen
+
+java -Djava.library.path=/usr/lib/jni -jar mortens-magna-styring.jar /dev/ttyUSB0 /sys/bus/w1/devices/28-*/w1_slave
